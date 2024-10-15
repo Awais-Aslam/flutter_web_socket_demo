@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-import '../constants/constant.dart';
+import '../constants/websocket_config.dart';
 import '../widgets/message_input.dart';
 import '../widgets/message_list.dart';
 

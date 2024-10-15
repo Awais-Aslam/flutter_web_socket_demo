@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+import '../constants/strings.dart';
 import '../constants/websocket_config.dart';
 import '../widgets/message_input.dart';
 import '../widgets/message_list.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    super.key,
-    required this.title,
-  });
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -20,15 +16,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final _controller = WebSocketChannel.connect(
     Uri.parse(wsUrl),
-  ); // From constants.dart
-  final List<String> _messages = []; // List to store all received messages
+  );
+  final List<String> _messages =
+      []; // List to store all the send received messages
   String currentMessage = '';
 
   void _sendMessage(String message) {
     if (message.isNotEmpty) {
       _controller.sink.add(message);
       setState(() {
-        _messages.add('Sent : $message');
+        _messages.add('${Strings.sent} : $message');
         currentMessage = message;
       });
     }
@@ -38,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text(Strings.appName),
         centerTitle: true,
         elevation: 0,
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/strings.dart';
+
 class MessageInputWidget extends StatelessWidget {
   MessageInputWidget({
     super.key,
@@ -21,7 +23,7 @@ class MessageInputWidget extends StatelessWidget {
         child: TextFormField(
           controller: _controller,
           decoration: InputDecoration(
-            labelText: 'Send a message',
+            labelText: Strings.sendMessage,
             labelStyle: const TextStyle(color: Colors.deepPurple),
             border: InputBorder.none,
             suffixIcon: IconButton(

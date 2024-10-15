@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/strings.dart';
+
 class MessageListWidget extends StatelessWidget {
   MessageListWidget({
     super.key,
@@ -21,17 +23,17 @@ class MessageListWidget extends StatelessWidget {
           String receivedMessage = snapshot.data.toString();
 
           // Add received message only if it's valid
-          if (!receivedMessage.contains('Request served by') &&
+          if (!receivedMessage.contains(Strings.requestServedBy) &&
               receivedMessage == currentMessage) {
             currentMessage = '';
-            messages.add('Received : $receivedMessage');
+            messages.add('${Strings.received} : $receivedMessage');
           }
         }
 
         return ListView.builder(
           itemCount: messages.length,
           itemBuilder: (context, index) {
-            bool isSentMessage = messages[index].startsWith('Sent');
+            bool isSentMessage = messages[index].startsWith(Strings.sent);
             return Align(
               alignment:
                   isSentMessage ? Alignment.centerRight : Alignment.centerLeft,

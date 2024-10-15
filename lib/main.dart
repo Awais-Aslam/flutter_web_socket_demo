@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_socket_demo/pages/home_page.dart';
 
+import 'constants/strings.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -8,16 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const title = 'WebSocket Demo';
 
     return MaterialApp(
-      title: title,
+      title: Strings.appName,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.grey[200],
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: title),
+      home: const MyHomePage(),
     );
   }
 }
